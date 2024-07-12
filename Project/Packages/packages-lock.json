@@ -187,7 +187,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.openxr.picoxr": {
-      "version": "file:C:/Users/carlo/Documents/PROJECTS/SDKs/PICO Unity OpenXR Integration SDK_120",
+      "version": "file:../../LocalPackages/PICO Unity OpenXR Integration SDK_120",
       "depth": 0,
       "source": "local",
       "dependencies": {
