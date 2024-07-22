@@ -1,5 +1,7 @@
 // Copyright (c) Carlos Cabrera 06/09/2023
 
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

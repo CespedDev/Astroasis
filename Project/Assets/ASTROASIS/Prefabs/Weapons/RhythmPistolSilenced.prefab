@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2525327119745342089
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1051615012851403407, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: InternalAmmo
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: ReloadMethod
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: MustChamberRounds
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onShootEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onAttachedAmmoEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onShootEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onShootEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 957949538158256131}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onShootEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: 9069c25edcf88bb4ba7baa198edd3d55,
+        type: 3}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onShootEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onShootEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onShootEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckRhythm
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 957949538158256131}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckRhythm
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onAttachedAmmoEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onShootEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RhythmSystem.RhythmChecker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RhythmSystem.RhythmChecker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onShootEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: onRaycastHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546355, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_Name
+      value: RhythmPistolSilenced
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546356, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546356, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546356, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546356, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546356, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546356, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546356, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546356, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546356, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546356, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546361, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: GrabPhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546361, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: ForceDisableKinematicOnDrop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546362, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173746675366546362, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7173746675366546355, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 957949538158256131}
+    - targetCorrespondingSourceObject: {fileID: 7173746675366546355, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+        type: 3}
+      insertIndex: 9
+      addedObject: {fileID: 3434633838189168203}
+  m_SourcePrefab: {fileID: 100100000, guid: 9f71a5ca74b14ff4a89316cd9faf9208, type: 3}
+--- !u!1 &4649270853908304186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7173746675366546355, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
+    type: 3}
+  m_PrefabInstance: {fileID: 2525327119745342089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &957949538158256131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649270853908304186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b4eeb285ca41fd40ba9d62b15d0f34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealerType: 0
+--- !u!114 &3434633838189168203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649270853908304186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804203cdc71657347bc071dfeba41047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalPositionOffset: {x: 0, y: 0, z: 0}
+  LocalRotationOffset: {x: 90, y: 0, z: 0}

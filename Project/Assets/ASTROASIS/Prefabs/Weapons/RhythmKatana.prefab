@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &548029612526467152
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 920710378339818133, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 920710378339818133, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 920710378339818133, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.337
+      objectReference: {fileID: 0}
+    - target: {fileID: 920710378339818133, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 920710378339818133, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.9914449
+      objectReference: {fileID: 0}
+    - target: {fileID: 920710378339818133, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.13052616
+      objectReference: {fileID: 0}
+    - target: {fileID: 920710378339818133, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 920710378339818133, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 920710378339818133, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 920710378339818133, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 920710378339818143, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_Name
+      value: RhythmKatana
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952782716470965823, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 920710378339818143, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 3344581639529815485}
+    - targetCorrespondingSourceObject: {fileID: 920710378339818143, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 961148669810436949}
+    - targetCorrespondingSourceObject: {fileID: 920710378339818143, guid: a7d6b8c7104034c459c257fce0277176,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6471708194858089958}
+  m_SourcePrefab: {fileID: 100100000, guid: a7d6b8c7104034c459c257fce0277176, type: 3}
+--- !u!1 &819086896951796431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 920710378339818143, guid: a7d6b8c7104034c459c257fce0277176,
+    type: 3}
+  m_PrefabInstance: {fileID: 548029612526467152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3344581639529815485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819086896951796431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975ba07eac653574a81b37d0908a8fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taggedEvents:
+  - tag: '"Enemy"'
+    OnCollision:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 961148669810436949}
+          m_TargetAssemblyTypeName: RhythmSystem.RhythmChecker, Assembly-CSharp
+          m_MethodName: CheckRhythm
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &961148669810436949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819086896951796431}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b4eeb285ca41fd40ba9d62b15d0f34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealerType: 1
+--- !u!114 &6471708194858089958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819086896951796431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804203cdc71657347bc071dfeba41047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalPositionOffset: {x: 0, y: 0, z: 0}
+  LocalRotationOffset: {x: 180, y: 0, z: 0}
