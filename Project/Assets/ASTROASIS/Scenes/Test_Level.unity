@@ -4419,6 +4419,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 57afc66dc51f99549b73249363af2720,
         type: 2}
+    - target: {fileID: 1832112540413317353, guid: 95714896962eba54c860898aa8d634a3,
+        type: 3}
+      propertyPath: RhythmActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443077087270486365, guid: 95714896962eba54c860898aa8d634a3,
+        type: 3}
+      propertyPath: RhythmActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6098486962962555351, guid: 95714896962eba54c860898aa8d634a3,
         type: 3}
       propertyPath: m_LocalPosition.z

@@ -8,8 +8,10 @@ namespace PlayerSystem
 {
     public class PlayerController : MonoBehaviour
     {
+        /// Player's movement state
         [SerializeField] private PlayerStateSO State;
 
+        /// Fordward direction vector
         [SerializeField] private Transform forward;
 
         private CharacterController characterController;
