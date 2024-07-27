@@ -38,7 +38,7 @@ namespace RhythmSystem
             // Test if bonus is null
             if (RhythmManager.Instance == null)
             {
-                Debug.LogError("There is no RhythmManager");
+                Debug.LogWarning("There is no RhythmManager");
                 return;
             }
 

@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: cd44589b13674fc4f97eec43ec7bc615, type: 2}
   dummyUndestroyed: {fileID: 7495404089485102445}
+  dummyDestroyed: {fileID: 0}
   dummyCollider: {fileID: 3686384689554169401}
 --- !u!135 &1938181074340986954
 SphereCollider:
@@ -14886,7 +14887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1266815339573343427
 Transform:
   m_ObjectHideFlags: 0
