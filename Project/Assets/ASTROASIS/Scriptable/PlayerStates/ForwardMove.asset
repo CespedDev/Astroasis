@@ -16,4 +16,4 @@ MonoBehaviour:
   StrafeSpeed: 4
   StrafeSprintSpeed: 4
   ForwardMovement: 1
-  ForwardSpeed: 0.05
+  ForwardSpeed: 6

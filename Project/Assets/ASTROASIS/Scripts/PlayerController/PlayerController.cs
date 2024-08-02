@@ -26,10 +26,10 @@ namespace PlayerSystem
             ResetState();
         }
 
-        void FixedUpdate()
+        void Update()
         {
             if (State.ForwardMovement) 
-                characterController.Move(Vector3.forward * State.ForwardSpeed);
+                characterController.Move(Vector3.forward * State.ForwardSpeed * Time.deltaTime);
         }
 
         public void ChangeState(PlayerStateSO state)
