@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDealerType: 0
+  RhythmActive: 1
 --- !u!114 &3434633838189168203
 MonoBehaviour:
   m_ObjectHideFlags: 0

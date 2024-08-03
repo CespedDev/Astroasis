@@ -102,7 +102,7 @@ namespace RhythmSystem
         /// Check the bonus should be apply
         /// </summary>
         /// <param name="rhythmChecker"></param>
-        public void CheckRhythm(out RhythmBonusSO rhythmBonus)
+        public void CheckRhythmBonus(out RhythmBonusSO rhythmBonus)
         {
             lastRhythm = null;
 

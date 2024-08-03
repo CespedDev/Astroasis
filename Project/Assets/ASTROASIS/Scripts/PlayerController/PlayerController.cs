@@ -8,8 +8,10 @@ namespace PlayerSystem
 {
     public class PlayerController : MonoBehaviour
     {
+        /// Player's movement state
         [SerializeField] private PlayerStateSO State;
 
+        /// Fordward direction vector
         [SerializeField] private Transform forward;
 
         private CharacterController characterController;
@@ -24,10 +26,10 @@ namespace PlayerSystem
             ResetState();
         }
 
-        void FixedUpdate()
+        void Update()
         {
             if (State.ForwardMovement) 
-                characterController.Move(Vector3.forward * State.ForwardSpeed);
+                characterController.Move(Vector3.forward * State.ForwardSpeed * Time.deltaTime);
         }
 
         public void ChangeState(PlayerStateSO state)
