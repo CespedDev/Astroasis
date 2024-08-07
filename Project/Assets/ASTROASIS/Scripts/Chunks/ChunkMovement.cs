@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChunkMovement : MonoBehaviour
 {
     [SerializeField] private float chunkVelocity = 3;
+    [SerializeField] private ChunkManager chunkManager;
 
     // Update is called once per frame
     void Update()
@@ -16,7 +17,8 @@ public class ChunkMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("DestroyChunk"))
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            chunkManager.RecycleChunk(other.gameObject);
         }
     }
 }

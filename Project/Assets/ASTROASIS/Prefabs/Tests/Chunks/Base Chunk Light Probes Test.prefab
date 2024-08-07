@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470b88e3593e84141b3fc265d57c1f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkVelocity: 10
+  chunkVelocity: 6
 --- !u!54 &409574673860574435
 Rigidbody:
   m_ObjectHideFlags: 0
