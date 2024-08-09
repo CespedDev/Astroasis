@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ChunkManager : MonoBehaviour
 {
-    [SerializeField] private GameObject chunkPrefab; 
+    [SerializeField] private List<GameObject> chunkPrefabList = new List<GameObject>(); 
     [SerializeField] private Transform  spawnPoint; 
     [SerializeField] private int        poolSize = 5; 
+    [SerializeField] private float      chunkSpeed = 4.0f; 
 
     // Pool de chunks
     private Queue<GameObject> chunkPool = new Queue<GameObject>(); 
@@ -16,7 +17,13 @@ public class ChunkManager : MonoBehaviour
     {
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject chunk = Instantiate(chunkPrefab, spawnPoint.position, Quaternion.identity);
+            int rnd = Random.Range(0, chunkPrefabList.Count);
+
+            GameObject chunk = Instantiate(chunkPrefabList[rnd], 
+                new Vector3(spawnPoint.position.x,spawnPoint.position.y,spawnPoint.position.z + 5.45f), 
+                Quaternion.identity);
+            chunk.GetComponent<ChunkMovement>().SetChunkSpeed(chunkSpeed);
+
             chunk.SetActive(false);
             chunkPool.Enqueue(chunk);
         }
@@ -24,7 +31,6 @@ public class ChunkManager : MonoBehaviour
 
     public void OnChunkTriggerActivated()
     {
-        // Manejar la activación de un nuevo chunk
         SpawnChunk();
     }
 
