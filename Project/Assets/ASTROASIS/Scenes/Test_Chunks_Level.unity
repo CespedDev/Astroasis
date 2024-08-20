@@ -256,8 +256,11 @@ MonoBehaviour:
   - {fileID: 7277434454898212567, guid: fc47f1c6f40670c41baa7617f512b694, type: 3}
   - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
   spawnPoint: {fileID: 962032615}
+  playerPosition: {fileID: 1380513954}
   poolSize: 5
   chunkSpeed: 4
+  chunksDisplayed: 3
+  chunkOffsetDeactive: 1
 --- !u!1 &1172913758
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +649,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380513949}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9874f27411a2525459fcdf0dfbd681af, type: 3}
   m_Name: 

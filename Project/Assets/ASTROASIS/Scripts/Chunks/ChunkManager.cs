@@ -6,44 +6,105 @@ public class ChunkManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> chunkPrefabList = new List<GameObject>(); 
     [SerializeField] private Transform  spawnPoint; 
+    [SerializeField] private Transform  playerPosition;  //
     [SerializeField] private int        poolSize = 5; 
-    [SerializeField] private float      chunkSpeed = 4.0f; 
+    [SerializeField] private float      chunkSpeed = 4.0f;
+    [SerializeField] private int        chunksDisplayed = 3;
+
+    [SerializeField] private float      chunkOffsetDeactive = 1.5f;
+                     private float      chunksDeactiveDistance;
+    
 
     // Pool de chunks
-    private Queue<GameObject> chunkPool = new Queue<GameObject>(); 
-
+    private Queue<GameObject> chunkPool    = new Queue<GameObject>(); 
+    private List<GameObject>  activeChunks = new List<GameObject>();
 
     void Start()
+    {
+        CreateInitialChunks();
+        InitializeChunks();
+    }
+
+    void Update()
+    {
+        ManageChunksState();
+    }
+
+    private void CreateInitialChunks()
     {
         for (int i = 0; i < poolSize; i++)
         {
             int rnd = Random.Range(0, chunkPrefabList.Count);
 
-            GameObject chunk = Instantiate(chunkPrefabList[rnd], 
-                new Vector3(spawnPoint.position.x,spawnPoint.position.y,spawnPoint.position.z + 5.45f), 
+            GameObject chunk = Instantiate(chunkPrefabList[rnd],
+                //new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z + 5.45f),
+                spawnPoint.position,
                 Quaternion.identity);
             chunk.GetComponent<ChunkMovement>().SetChunkSpeed(chunkSpeed);
+            chunksDeactiveDistance = chunk.GetComponentInChildren<MeshRenderer>().bounds.size.z * chunkOffsetDeactive;
 
             chunk.SetActive(false);
             chunkPool.Enqueue(chunk);
         }
     }
-
-    public void OnChunkTriggerActivated()
+    private void InitializeChunks()
     {
-        SpawnChunk();
+        for (int i = 0; i < chunksDisplayed; ++i) { SpawnChunk(); }
     }
 
-    // Método para activar un chunk en la posición de spawnPoint
+    // Antiguo uso/manejo de los chunks activos por colliders
+    public void OnChunkTriggerActivated()
+    {
+        if(activeChunks.Count < chunksDisplayed) { SpawnChunk(); }        
+    }
+
+    private void ManageChunksState()
+    {
+        if(activeChunks.Count < chunksDisplayed)
+        {
+            SpawnChunk();
+        }
+
+        if(activeChunks.Count > 0 && 
+            activeChunks[0].transform.position.z < playerPosition.position.z - chunksDeactiveDistance) 
+        {
+            RecycleChunk(activeChunks[0]);
+        }
+    }
+
+    // Método para activar un chunk
     private void SpawnChunk()
     {
         if (chunkPool.Count > 0)
         {
             GameObject chunk = chunkPool.Dequeue();
-            chunk.transform.position = spawnPoint.position;
-            //Debug.Log($"x- {spawnPoint.position.x},y- {spawnPoint.position.y},z- {spawnPoint.position.z}");
+
+            if (activeChunks.Count > 0)
+            {
+                GameObject lastChunk = activeChunks[activeChunks.Count - 1];  
+                
+                MeshRenderer lastChunkRenderer = lastChunk.GetComponentInChildren<MeshRenderer>();
+                
+                if (lastChunkRenderer != null)
+                {
+                    float chunkLength = lastChunkRenderer.bounds.size.z;
+
+                    Vector3 newPosition = lastChunk.transform.position + new Vector3(0, 0, chunkLength);
+                    chunk.transform.position = newPosition;
+                }
+                else
+                {
+                    // Si no tiene MeshRenderer, usa la posición actual (caso de primer chunk generado)
+                    chunk.transform.position = spawnPoint.position;
+                }
+            }
+            else
+            {
+                chunk.transform.position = spawnPoint.position;
+            }
+
             chunk.SetActive(true);
-            chunkPool.Enqueue(chunk);
+            activeChunks.Add(chunk);
         }
     }
 
@@ -51,6 +112,16 @@ public class ChunkManager : MonoBehaviour
     public void RecycleChunk(GameObject chunk)
     {
         chunk.SetActive(false);
+
         chunk.transform.position = Vector3.zero;
+
+        chunkPool.Enqueue(chunk);
+        activeChunks.Remove(chunk);
+
+        // Activar un nuevo chunk para mantener el número deseado de chunks activos
+        if (activeChunks.Count < chunksDisplayed)
+        {
+            SpawnChunk();
+        }
     }
 }

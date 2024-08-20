@@ -19,7 +19,7 @@ public class ChunkMovement : MonoBehaviour
         if (other.gameObject.CompareTag("DestroyChunk"))
         {
             //Destroy(gameObject);
-            //chunkManager.RecycleChunk(other.gameObject);
+            //chunkManager.RecycleChunk(gameObject);
             Debug.Log("Destroy this chunk" + gameObject.name);
         }
     }

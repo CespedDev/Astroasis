@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470b88e3593e84141b3fc265d57c1f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkVelocity: 6
+  chunkManager: {fileID: 0}
 --- !u!54 &409574673860574435
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -844,7 +844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7829558799117452524
 Transform:
   m_ObjectHideFlags: 0
