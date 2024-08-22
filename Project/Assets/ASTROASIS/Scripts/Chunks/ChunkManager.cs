@@ -21,7 +21,7 @@ public class ChunkManager : MonoBehaviour
 
     void Start()
     {
-        CreateInitialChunks();
+        CreateChunksPool();
         InitializeChunks();
     }
 
@@ -30,7 +30,7 @@ public class ChunkManager : MonoBehaviour
         ManageChunksState();
     }
 
-    private void CreateInitialChunks()
+    private void CreateChunksPool()
     {
         for (int i = 0; i < poolSize; i++)
         {
@@ -47,33 +47,34 @@ public class ChunkManager : MonoBehaviour
             chunkPool.Enqueue(chunk);
         }
     }
+
     private void InitializeChunks()
     {
-        for (int i = 0; i < chunksDisplayed; ++i) { SpawnChunk(); }
+        for (int i = 0; i < chunksDisplayed; ++i) { ActivateChunk(); }
     }
 
     // Antiguo uso/manejo de los chunks activos por colliders
     public void OnChunkTriggerActivated()
     {
-        if(activeChunks.Count < chunksDisplayed) { SpawnChunk(); }        
+        if(activeChunks.Count < chunksDisplayed) { ActivateChunk(); }        
     }
 
     private void ManageChunksState()
     {
         if(activeChunks.Count < chunksDisplayed)
         {
-            SpawnChunk();
+            ActivateChunk();
         }
 
         if(activeChunks.Count > 0 && 
             activeChunks[0].transform.position.z < playerPosition.position.z - chunksDeactiveDistance) 
         {
-            RecycleChunk(activeChunks[0]);
+            DisableChunk(activeChunks[0]);
         }
     }
 
     // Método para activar un chunk
-    private void SpawnChunk()
+    private void ActivateChunk()
     {
         if (chunkPool.Count > 0)
         {
@@ -109,7 +110,7 @@ public class ChunkManager : MonoBehaviour
     }
 
     // Método para desactivar y devolver a la pool el chunk
-    public void RecycleChunk(GameObject chunk)
+    public void DisableChunk(GameObject chunk)
     {
         chunk.SetActive(false);
 
@@ -121,7 +122,7 @@ public class ChunkManager : MonoBehaviour
         // Activar un nuevo chunk para mantener el número deseado de chunks activos
         if (activeChunks.Count < chunksDisplayed)
         {
-            SpawnChunk();
+            ActivateChunk();
         }
     }
 }

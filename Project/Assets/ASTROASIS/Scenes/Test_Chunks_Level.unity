@@ -14,12 +14,12 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_Fog: 1
+  m_FogColor: {r: 0.2392157, g: 0.08235294, b: 0.08235294, a: 1}
+  m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogStart: 10
+  m_LinearFogEnd: 40
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1127767372
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -218,6 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1132453066}
   - component: {fileID: 1132453067}
+  - component: {fileID: 1132453068}
   m_Layer: 0
   m_Name: ChunkManager
   m_TagString: Untagged
@@ -234,7 +235,7 @@ Transform:
   m_GameObject: {fileID: 1132453065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.812255, y: 3.038, z: -8.189477}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -257,10 +258,55 @@ MonoBehaviour:
   - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
   spawnPoint: {fileID: 962032615}
   playerPosition: {fileID: 1380513954}
-  poolSize: 5
+  poolSize: 8
   chunkSpeed: 4
-  chunksDisplayed: 3
-  chunkOffsetDeactive: 1
+  chunksDisplayed: 4
+  chunkOffsetDeactive: 2
+--- !u!114 &1132453068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132453065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3958e5f163843146a4a5a8901004cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeners:
+  - Event: {fileID: 11400000, guid: c2bb4a6c86f6e864cb96cb22882e47a2, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1132453065}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Event: {fileID: 11400000, guid: 568a3575a46f9bd4db51a6bd6bf61172, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1132453065}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1172913758
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +366,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 40
   field of view: 60
   orthographic: 0
   orthographic size: 5

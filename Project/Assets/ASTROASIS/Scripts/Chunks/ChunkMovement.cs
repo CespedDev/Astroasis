@@ -14,16 +14,6 @@ public class ChunkMovement : MonoBehaviour
         transform.position += new Vector3(0,0, -chunkVelocity) * Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("DestroyChunk"))
-        {
-            //Destroy(gameObject);
-            //chunkManager.RecycleChunk(gameObject);
-            Debug.Log("Destroy this chunk" + gameObject.name);
-        }
-    }
-
     public void SetChunkSpeed(float speed)
     {
         chunkVelocity = speed;
