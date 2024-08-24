@@ -256,6 +256,17 @@ MonoBehaviour:
   chunkPrefabList:
   - {fileID: 7277434454898212567, guid: fc47f1c6f40670c41baa7617f512b694, type: 3}
   - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
+  - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
+  - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
+  - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
+  - {fileID: 7277434454898212567, guid: 6f6b3d85566a4bf4996476f5ce6e74fe, type: 3}
+  - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
+  - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
+  - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
+  - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
+  - {fileID: 7277434454898212567, guid: 87cff7e52bfd2db4c8ad6d8a40487f43, type: 3}
+  - {fileID: 7277434454898212567, guid: 6f6b3d85566a4bf4996476f5ce6e74fe, type: 3}
+  - {fileID: 7277434454898212567, guid: fc47f1c6f40670c41baa7617f512b694, type: 3}
   spawnPoint: {fileID: 962032615}
   playerPosition: {fileID: 1380513954}
   poolSize: 8
@@ -279,13 +290,13 @@ MonoBehaviour:
     Response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1132453065}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
+        - m_Target: {fileID: 1132453067}
+          m_TargetAssemblyTypeName: ChunkManager, Assembly-CSharp
+          m_MethodName: SetMovementOfActiveChunks
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -295,13 +306,13 @@ MonoBehaviour:
     Response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1132453065}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
+        - m_Target: {fileID: 1132453067}
+          m_TargetAssemblyTypeName: ChunkManager, Assembly-CSharp
+          m_MethodName: SetMovementOfActiveChunks
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -575,7 +586,6 @@ GameObject:
   - component: {fileID: 1380513952}
   - component: {fileID: 1380513951}
   - component: {fileID: 1380513950}
-  - component: {fileID: 1380513955}
   - component: {fileID: 1380513956}
   m_Layer: 0
   m_Name: PlayerTest
@@ -688,19 +698,6 @@ Transform:
   - {fileID: 1172913761}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1380513955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380513949}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9874f27411a2525459fcdf0dfbd681af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chunkManager: {fileID: 1132453067}
 --- !u!54 &1380513956
 Rigidbody:
   m_ObjectHideFlags: 0

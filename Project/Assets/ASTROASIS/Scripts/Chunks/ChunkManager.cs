@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ChunkManager : MonoBehaviour
@@ -12,12 +13,15 @@ public class ChunkManager : MonoBehaviour
     [SerializeField] private int        chunksDisplayed = 3;
 
     [SerializeField] private float      chunkOffsetDeactive = 1.5f;
-                     private float      chunksDeactiveDistance;
-    
+                     private float      chunksDeactiveDistance;    
 
     // Pool de chunks
     private Queue<GameObject> chunkPool    = new Queue<GameObject>(); 
     private List<GameObject>  activeChunks = new List<GameObject>();
+        
+    private bool activeChunksBoolMovement = false;
+    private bool startedGame = false;
+    private int  indexChunkList = 0;
 
     void Start()
     {
@@ -28,35 +32,51 @@ public class ChunkManager : MonoBehaviour
     void Update()
     {
         ManageChunksState();
+
+        //Dev Test
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            activeChunksBoolMovement = !activeChunksBoolMovement;
+            SetMovementOfActiveChunks(activeChunksBoolMovement);
+        } 
+        
+        // Change this to a method when player start game
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            startedGame = !startedGame;
+            activeChunksBoolMovement = true;
+            SetMovementOfActiveChunks(activeChunksBoolMovement);
+        }
     }
 
     private void CreateChunksPool()
     {
         for (int i = 0; i < poolSize; i++)
         {
-            int rnd = Random.Range(0, chunkPrefabList.Count);
+            //int rnd = Random.Range(0, chunkPrefabList.Count);
+            CreateChunk();
 
-            GameObject chunk = Instantiate(chunkPrefabList[rnd],
-                //new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z + 5.45f),
-                spawnPoint.position,
-                Quaternion.identity);
-            chunk.GetComponent<ChunkMovement>().SetChunkSpeed(chunkSpeed);
-            chunksDeactiveDistance = chunk.GetComponentInChildren<MeshRenderer>().bounds.size.z * chunkOffsetDeactive;
-
-            chunk.SetActive(false);
-            chunkPool.Enqueue(chunk);
+            indexChunkList++;
         }
+    }
+
+    private void CreateChunk()
+    {
+        //IndexOutofRange error del indexChunkList porque si la lista del nivel tiene menos que la poolsize
+        GameObject chunk = Instantiate(chunkPrefabList[indexChunkList], spawnPoint.position, Quaternion.identity);
+
+        chunk.GetComponent<ChunkMovement>().SetChunkSpeed(chunkSpeed);
+        chunk.GetComponentInChildren<ChunkMovement>().SetChunkMovement(activeChunksBoolMovement);
+
+        chunksDeactiveDistance = chunk.GetComponentInChildren<MeshRenderer>().bounds.size.z * chunkOffsetDeactive;
+
+        chunk.SetActive(false);
+        chunkPool.Enqueue(chunk);
     }
 
     private void InitializeChunks()
     {
         for (int i = 0; i < chunksDisplayed; ++i) { ActivateChunk(); }
-    }
-
-    // Antiguo uso/manejo de los chunks activos por colliders
-    public void OnChunkTriggerActivated()
-    {
-        if(activeChunks.Count < chunksDisplayed) { ActivateChunk(); }        
     }
 
     private void ManageChunksState()
@@ -105,24 +125,38 @@ public class ChunkManager : MonoBehaviour
             }
 
             chunk.SetActive(true);
-            activeChunks.Add(chunk);
+            activeChunks.Add(chunk);            
+            
+            if (startedGame) 
+            {
+                activeChunksBoolMovement = true; 
+                SetMovementOfActiveChunks(activeChunksBoolMovement); 
+            }
         }
     }
 
     // Método para desactivar y devolver a la pool el chunk
-    public void DisableChunk(GameObject chunk)
+    private void DisableChunk(GameObject chunk)
     {
-        chunk.SetActive(false);
-
-        chunk.transform.position = Vector3.zero;
-
-        chunkPool.Enqueue(chunk);
         activeChunks.Remove(chunk);
+        Destroy(chunk);
+
+        if (indexChunkList < chunkPrefabList.Count)
+        {
+            CreateChunk();
+
+            indexChunkList++;
+        }
 
         // Activar un nuevo chunk para mantener el número deseado de chunks activos
         if (activeChunks.Count < chunksDisplayed)
         {
             ActivateChunk();
         }
+    }
+
+    public void SetMovementOfActiveChunks(bool state)
+    {        
+        foreach (var chunk in activeChunks) { chunk.GetComponent<ChunkMovement>().SetChunkMovement(state); }
     }
 }
