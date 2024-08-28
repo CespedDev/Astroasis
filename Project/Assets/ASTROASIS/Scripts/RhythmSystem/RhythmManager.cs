@@ -47,7 +47,7 @@ namespace RhythmSystem
         public float songPositionInBeats            { get; private set; }
         public float dspSongTime                    { get; private set; }
         public int   completedLoops                 { get; private set; } = 0;
-        public float loopPositionInBeats            { get; private set; }
+        public float loopPositionInBeats;       
         public float loopPositionInBeatsNormalize   { get; private set; }
 
         // RHYTHM CHECKED
