@@ -374,6 +374,13 @@ namespace BNG {
                 return;
             }
 
+            // C.Cabrera (11/09/2024): No bullets
+            if (ReloadMethod == ReloadType.InternalAmmo && InternalAmmo <= 0)
+            {
+                VRUtils.Instance.PlaySpatialClipAt(EmptySound, transform.position, EmptySoundVolume, 0.5f);
+                return;
+            }
+
             // Create our own spatial clip
             VRUtils.Instance.PlaySpatialClipAt(GunShotSound, transform.position, GunShotVolume);
 
@@ -631,6 +638,11 @@ namespace BNG {
         }
         
         protected virtual void ejectCasing() {
+
+            // C.Cabrera (11/09/2024): In case we dont want bullet casing
+            if (BulletCasingPrefab == null)
+                return;
+
             GameObject shell = Instantiate(BulletCasingPrefab, EjectPointTransform.position, EjectPointTransform.rotation) as GameObject;
             Rigidbody rb = shell.GetComponentInChildren<Rigidbody>();
 
