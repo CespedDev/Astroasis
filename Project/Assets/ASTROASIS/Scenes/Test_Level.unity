@@ -5124,17 +5124,17 @@ PrefabInstance:
         type: 3}
       propertyPath: State
       value: 
-      objectReference: {fileID: 11400000, guid: 57afc66dc51f99549b73249363af2720,
+      objectReference: {fileID: 11400000, guid: 55b0f2873f59d4a4ca0e86b882b5d6b4,
         type: 2}
     - target: {fileID: 1832112540413317353, guid: 95714896962eba54c860898aa8d634a3,
         type: 3}
       propertyPath: RhythmActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4443077087270486365, guid: 95714896962eba54c860898aa8d634a3,
         type: 3}
       propertyPath: RhythmActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6098486962962555351, guid: 95714896962eba54c860898aa8d634a3,
         type: 3}
@@ -7671,6 +7671,158 @@ Transform:
   - {fileID: 21768335}
   m_Father: {fileID: 1841454547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1965125705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1965125708}
+  - component: {fileID: 1965125707}
+  - component: {fileID: 1965125706}
+  m_Layer: 0
+  m_Name: RhythmManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1965125706
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965125705}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7cc8b75fd01e1344bb1a2047bd9ef148, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1965125707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965125705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9069c25edcf88bb4ba7baa198edd3d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <songBpm>k__BackingField: 120
+  <firstBeatOffset>k__BackingField: 0
+  <musicSource>k__BackingField: {fileID: 1965125706}
+  <beatsPerLoop>k__BackingField: 160
+  accuracyBonuses:
+  - {fileID: 11400000, guid: 8e20cbb802376be4d985bc23019d4f38, type: 2}
+  - {fileID: 11400000, guid: fc6f06391df9aa5439201a5ba56bf208, type: 2}
+  - {fileID: 11400000, guid: 24db93c8d73d8f141b5a8e4f54aec6fc, type: 2}
+  - {fileID: 11400000, guid: d2a422323740e7043b155e18e4daebe8, type: 2}
+  - {fileID: 11400000, guid: 9d5a38b285b268f40b62ab7923eae0dc, type: 2}
+  loopPositionInBeats: 0
+--- !u!4 &1965125708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965125705}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.4111505, y: 3.5612278, z: -5.0936356}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1965718209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8398,3 +8550,4 @@ SceneRoots:
   - {fileID: 1841454547}
   - {fileID: 2100816642}
   - {fileID: 81292400}
+  - {fileID: 1965125708}
