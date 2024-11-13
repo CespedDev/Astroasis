@@ -9,11 +9,14 @@ public class PlayerSceneHandle : MonoBehaviour
     private GameObject Player;
 
     [SerializeField]
+    private string awakeLoadScene;
+
+    [SerializeField]
     private GameObject EndMenu;
 
     void Awake()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+        SceneManager.LoadScene(awakeLoadScene, LoadSceneMode.Additive);
     }
 
     public void EndScene()

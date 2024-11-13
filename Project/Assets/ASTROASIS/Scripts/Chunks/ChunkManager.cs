@@ -6,8 +6,7 @@ using UnityEngine;
 public class ChunkManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> chunkPrefabList = new List<GameObject>(); 
-    [SerializeField] private Transform  spawnPoint; 
-    [SerializeField] private Transform  playerPosition;  //
+    [SerializeField] private Transform  spawnPoint;
     [SerializeField] private int        poolSize = 5; 
     [SerializeField] private float      chunkSpeed = 4.0f;
     [SerializeField] private int        chunksDisplayed = 3;
@@ -41,7 +40,7 @@ public class ChunkManager : MonoBehaviour
         } 
         
         // Change this to a method when player start game
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             startedGame = !startedGame;
             activeChunksBoolMovement = true;
@@ -87,7 +86,7 @@ public class ChunkManager : MonoBehaviour
         }
 
         if(activeChunks.Count > 0 && 
-            activeChunks[0].transform.position.z < playerPosition.position.z - chunksDeactiveDistance) 
+            activeChunks[0].transform.position.z < spawnPoint.position.z - chunksDeactiveDistance) 
         {
             DisableChunk(activeChunks[0]);
         }
@@ -102,8 +101,12 @@ public class ChunkManager : MonoBehaviour
 
             if (activeChunks.Count > 0)
             {
-                GameObject lastChunk = activeChunks[activeChunks.Count - 1];  
-                
+                GameObject lastChunk = activeChunks[activeChunks.Count - 1];
+
+                /**
+                 *  C.Cabrera (13/11/2024): I really like the idea, but the problem is that we work with a modular system, so no mesh renderer
+                 *  has the actual size of a chunk, which means it might not work with the real chunks. Pending confirmation.
+                 */
                 MeshRenderer lastChunkRenderer = lastChunk.GetComponentInChildren<MeshRenderer>();
                 
                 if (lastChunkRenderer != null)
