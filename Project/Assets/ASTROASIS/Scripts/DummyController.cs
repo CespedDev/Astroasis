@@ -8,22 +8,20 @@ public class DummyController : MonoBehaviour
     [SerializeField]
     private ObjectDataListSO data;
     [SerializeField]
-    private GameObject dummyUndestroyed;
-    [SerializeField]
-    private GameObject dummyDestroyed;
+    private Animator animator;
     [SerializeField]
     private Collider dummyCollider;
 
 
-    private bool spawned = false;
+    private bool opened = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!spawned && other.tag == "Player")
+        if (!opened && other.tag == "Player")
         {
-            dummyUndestroyed.SetActive(true);
+            animator.SetBool("Open", true);
             dummyCollider.enabled = true;
-            spawned = true;
+            opened = true;
         }
     }
 
@@ -32,12 +30,6 @@ public class DummyController : MonoBehaviour
         if (GameManager.Instance)
             GameManager.Instance.IncreaseScore(data);
 
-        if (dummyDestroyed)
-        {
-            AudioSource source = dummyDestroyed.GetComponent<AudioSource>();
-            source.pitch = -1;
-            source.timeSamples = source.clip.samples - 1;
-            source.Play();
-        }
+        animator.SetBool("Died", true);
     }
 }

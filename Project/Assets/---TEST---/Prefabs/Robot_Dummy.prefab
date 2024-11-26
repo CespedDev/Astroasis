@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5315093496119590339}
   - component: {fileID: 3686384689554169401}
   - component: {fileID: 3090737918213810416}
-  - component: {fileID: 1938181074340986954}
+  - component: {fileID: 8191508888564940425}
   m_Layer: 0
   m_Name: Robot_Dummy
   m_TagString: Enemy
@@ -32,10 +32,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 4178367186934258810}
+  - {fileID: 7377239273534753843}
   - {fileID: 5922187616708963352}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56,15 +56,14 @@ MonoBehaviour:
   SelfDestructDelay: 0
   SpawnOnDeath: {fileID: 0}
   ActivateGameObjectsOnDeath: []
-  DeactivateGameObjectsOnDeath:
-  - {fileID: 0}
+  DeactivateGameObjectsOnDeath: []
   DeactivateCollidersOnDeath:
   - {fileID: 3686384689554169401}
   DestroyOnDeath: 1
-  DropOnDeath: 1
-  DestroyDelay: 10
+  DropOnDeath: 0
+  DestroyDelay: 1.1
   Respawn: 0
-  RespawnTime: 5
+  RespawnTime: 0
   RemoveBulletHolesOnDeath: 1
   onDamaged:
     m_PersistentCalls:
@@ -164,7 +163,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.375
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3090737918213810416
 MonoBehaviour:
@@ -179,11 +178,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: cd44589b13674fc4f97eec43ec7bc615, type: 2}
-  dummyUndestroyed: {fileID: 0}
-  dummyDestroyed: {fileID: 0}
+  animator: {fileID: 6084457575583494854}
   dummyCollider: {fileID: 3686384689554169401}
---- !u!135 &1938181074340986954
-SphereCollider:
+--- !u!65 &8191508888564940425
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -201,8 +199,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 15
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 6, y: 3, z: 9}
+  m_Center: {x: 0, y: 0, z: 4.5}
 --- !u!1 &4093794810604883762
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,12 +213,12 @@ GameObject:
   - component: {fileID: 2011518418852236680}
   - component: {fileID: 209016980525525246}
   m_Layer: 0
-  m_Name: Eeexplosion
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5922187616708963352
 Transform:
   m_ObjectHideFlags: 0
@@ -231,7 +229,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2032762956122364548}
@@ -5093,6 +5091,38 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &4132366702096954188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7377239273534753843}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7377239273534753843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4132366702096954188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4178367186934258810}
+  m_Father: {fileID: 5980807238223398924}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4994886402949422276
 GameObject:
   m_ObjectHideFlags: 0
@@ -14876,7 +14906,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5980807238223398924}
+    m_TransformParent: {fileID: 7377239273534753843}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 29dfbd2f0a0c61245aba39598b2d7a10,
         type: 3}
@@ -14901,7 +14931,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 29dfbd2f0a0c61245aba39598b2d7a10,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29dfbd2f0a0c61245aba39598b2d7a10,
         type: 3}
