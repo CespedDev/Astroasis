@@ -278,7 +278,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 830793898}
-  awakeLoadScene: LevelScene
+  awakeLoadScenes:
+  - IntroMenu
+  - LevelScene
   EndMenu: {fileID: 0}
 --- !u!1 &2050006725
 GameObject:

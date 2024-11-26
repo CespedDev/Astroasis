@@ -16,7 +16,6 @@ public class MainMenuController : MonoBehaviour
         Debug.Log("LOADING level");
         SceneManager.LoadScene("Nivel", LoadSceneMode.Additive);
         
-        
     }
 
     public void Options()
