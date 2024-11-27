@@ -1,19 +1,18 @@
-using GameplayEvents;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using AYellowpaper.SerializedCollections;
+using GameplayEvents;
 
 public class MenusController : MonoBehaviour
 {
     [SerializeField]
-    private Utils.SerializableDictionary<MenusEnum, GameObject> menus;
-    
+    private SerializedDictionary<MenusEnum, GameObject> menus;
+
     [SerializeField]
     private GameEventSO loadingEvent;
 
-    private MenusEnum? currentMenu =  null;
+    private MenusEnum currentMenu =  MenusEnum.IntroMenu;
 
     // ____ INTRO MENU ____
     public void OpenMainMenu() { LoadMenu(MenusEnum.MainMenu); }
@@ -40,7 +39,7 @@ public class MenusController : MonoBehaviour
     // ____ MENU MANAGE ____
     private void LoadMenu(MenusEnum menu)
     {
-        if (currentMenu.HasValue) UnloadMenu(currentMenu.Value);
+        UnloadMenu(currentMenu);
 
         menus[menu].SetActive(true);
         currentMenu = menu;

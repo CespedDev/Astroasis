@@ -201,13 +201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkPrefabList:
   - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
-  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
-  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
-  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
-  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
-  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
-  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
-  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
   spawnPoint: {fileID: 962032615}
   poolSize: 4
   chunkSpeed: 4
@@ -240,7 +233,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
   - Event: {fileID: 11400000, guid: 568a3575a46f9bd4db51a6bd6bf61172, type: 2}
     Response:

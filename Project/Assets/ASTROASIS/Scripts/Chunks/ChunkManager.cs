@@ -31,31 +31,14 @@ public class ChunkManager : MonoBehaviour
     void Update()
     {
         ManageChunksState();
-
-        //Dev Test
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            activeChunksBoolMovement = !activeChunksBoolMovement;
-            SetMovementOfActiveChunks(activeChunksBoolMovement);
-        } 
-        
-        // Change this to a method when player start game
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            startedGame = !startedGame;
-            activeChunksBoolMovement = true;
-            SetMovementOfActiveChunks(activeChunksBoolMovement);
-        }
     }
 
     private void CreateChunksPool()
     {
-        for (int i = 0; i < poolSize; i++)
+        for (int i = 0; i < poolSize && i < chunkPrefabList.Count; i++)
         {
             //int rnd = Random.Range(0, chunkPrefabList.Count);
             CreateChunk();
-
-            indexChunkList++;
         }
     }
 
@@ -71,6 +54,8 @@ public class ChunkManager : MonoBehaviour
 
         chunk.SetActive(false);
         chunkPool.Enqueue(chunk);
+
+        indexChunkList++;
     }
 
     private void InitializeChunks()
@@ -80,8 +65,9 @@ public class ChunkManager : MonoBehaviour
 
     private void ManageChunksState()
     {
-        if(activeChunks.Count < chunksDisplayed)
+        if(activeChunks.Count < chunksDisplayed && indexChunkList < chunkPrefabList.Count)
         {
+            CreateChunk();
             ActivateChunk();
         }
 
@@ -130,11 +116,6 @@ public class ChunkManager : MonoBehaviour
             chunk.SetActive(true);
             activeChunks.Add(chunk);            
             
-            if (startedGame) 
-            {
-                activeChunksBoolMovement = true; 
-                SetMovementOfActiveChunks(activeChunksBoolMovement); 
-            }
         }
     }
 
@@ -147,8 +128,6 @@ public class ChunkManager : MonoBehaviour
         if (indexChunkList < chunkPrefabList.Count)
         {
             CreateChunk();
-
-            indexChunkList++;
         }
 
         // Activar un nuevo chunk para mantener el número deseado de chunks activos
@@ -159,7 +138,10 @@ public class ChunkManager : MonoBehaviour
     }
 
     public void SetMovementOfActiveChunks(bool state)
-    {        
+    {
+        startedGame = !startedGame;
+        activeChunksBoolMovement = true;
+
         foreach (var chunk in activeChunks) { chunk.GetComponent<ChunkMovement>().SetChunkMovement(state); }
     }
 }

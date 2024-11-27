@@ -817,40 +817,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Event: {fileID: 11400000, guid: c2bb4a6c86f6e864cb96cb22882e47a2, type: 2}
-    Response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1145848212385009316}
-          m_TargetAssemblyTypeName: PlayerSystem.PlayerController, Assembly-CSharp
-          m_MethodName: ChangeState
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: 57afc66dc51f99549b73249363af2720,
-              type: 2}
-            m_ObjectArgumentAssemblyTypeName: PlayerSystem.PlayerStateSO, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Event: {fileID: 11400000, guid: 568a3575a46f9bd4db51a6bd6bf61172, type: 2}
-    Response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1145848212385009316}
-          m_TargetAssemblyTypeName: PlayerSystem.PlayerController, Assembly-CSharp
-          m_MethodName: ChangeState
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: 81a8bf674ccbd664b9d13f541817c9d8,
-              type: 2}
-            m_ObjectArgumentAssemblyTypeName: PlayerSystem.PlayerStateSO, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!4 &6706398535511641105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2093207351254462809, guid: 4ac7df741a9c0a2418ec19477729ee3d,
