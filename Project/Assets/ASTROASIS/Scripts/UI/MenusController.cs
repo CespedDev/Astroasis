@@ -1,3 +1,4 @@
+using GameplayEvents;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,29 @@ using UnityEngine.SceneManagement;
 
 public class MenusController : MonoBehaviour
 {
-    private MenusEnum? currentMenu =  null;   
+    [SerializeField]
+    private Utils.SerializableDictionary<MenusEnum, GameObject> menus;
+    
+    [SerializeField]
+    private GameEventSO loadingEvent;
 
-    public void StartGame() { LoadMenu(MenusEnum.GameLevel); }
+    private MenusEnum? currentMenu =  null;
+
+    // ____ INTRO MENU ____
+    public void OpenMainMenu() { LoadMenu(MenusEnum.MainMenu); }
+
+    // ____ MAIN MENU ____
+    public void StartGame() 
+    {
+        //LoadMenu(MenusEnum.GameLevel);
+
+        loadingEvent.Raise();
+
+        Debug.Log("UNLOADING menu");
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("MainMenu"));
+
+        Debug.Log("LOADING level");
+    }
 
     public void OpenOptions() { LoadMenu(MenusEnum.OptionsMenu); }
 
@@ -16,17 +37,17 @@ public class MenusController : MonoBehaviour
 
     public void QuitGame() { Application.Quit(); }
 
-    private void LoadMenu(MenusEnum newMenu)
+    // ____ MENU MANAGE ____
+    private void LoadMenu(MenusEnum menu)
     {
         if (currentMenu.HasValue) UnloadMenu(currentMenu.Value);
 
-
-        SceneManager.LoadSceneAsync(newMenu.ToString(), LoadSceneMode.Additive);
-        currentMenu = newMenu;
+        menus[menu].SetActive(true);
+        currentMenu = menu;
     }
 
     private void UnloadMenu(MenusEnum menu)
     {
-        SceneManager.UnloadSceneAsync(menu.ToString());
+        menus[menu].SetActive(false);
     }
 }
