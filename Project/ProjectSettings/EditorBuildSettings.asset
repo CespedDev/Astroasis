@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/ASTROASIS/Scenes/UI/IntroMenu.unity
     guid: 2111c5def7ca9ad4692fcdd3d14947af
   - enabled: 1
-    path: Assets/ASTROASIS/Scenes/UI/MainMenu.unity
+    path: Assets/ASTROASIS/Scenes/UI/MenuScene.unity
     guid: 7664f25afc1634241b40955c87180c44
   - enabled: 1
     path: Assets/ASTROASIS/Scenes/UI/OptionsMenu.unity

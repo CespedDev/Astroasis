@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunkPrefabList:
-  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
+  - {fileID: 3275803159958549170, guid: 9e7fd14a479c44c4c8126dff4068901e, type: 3}
   spawnPoint: {fileID: 962032615}
   poolSize: 4
   chunkSpeed: 4

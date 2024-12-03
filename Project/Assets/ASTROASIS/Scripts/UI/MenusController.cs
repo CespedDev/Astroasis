@@ -25,7 +25,7 @@ public class MenusController : MonoBehaviour
         loadingEvent.Raise();
 
         Debug.Log("UNLOADING menu");
-        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("MainMenu"));
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("MenuScene"));
 
         Debug.Log("LOADING level");
     }
