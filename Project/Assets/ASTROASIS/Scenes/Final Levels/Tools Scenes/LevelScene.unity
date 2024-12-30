@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -199,13 +199,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa40d3bad8762e744a049394f3e68237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkPrefabList:
+  initChunkPrefabList: []
+  levelChunks:
+  - {fileID: 3275803159958549170, guid: 9e7fd14a479c44c4c8126dff4068901e, type: 3}
+  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
+  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
+  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
+  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
+  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
+  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
+  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
+  - {fileID: 3275803159958549170, guid: d4977399bfeabfd4d89dd5ea0e865fce, type: 3}
   - {fileID: 3275803159958549170, guid: 9e7fd14a479c44c4c8126dff4068901e, type: 3}
   spawnPoint: {fileID: 962032615}
-  poolSize: 4
+  poolSize: 2
   chunkSpeed: 4
   chunksDisplayed: 4
-  chunkOffsetDeactive: 2
+  deleteDistance: 48
 --- !u!114 &1132453068
 MonoBehaviour:
   m_ObjectHideFlags: 0

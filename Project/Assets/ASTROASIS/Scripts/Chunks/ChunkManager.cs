@@ -5,27 +5,27 @@ using UnityEngine;
 
 public class ChunkManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> chunkPrefabList = new List<GameObject>(); 
-    [SerializeField] private Transform  spawnPoint;
-    [SerializeField] private int        poolSize = 5; 
-    [SerializeField] private float      chunkSpeed = 4.0f;
-    [SerializeField] private int        chunksDisplayed = 3;
+    [Header("Chunks Prefabs")]
+    [SerializeField] private List<GameObject> initChunkPrefabList = new List<GameObject>();
+    [SerializeField] private List<GameObject> levelChunks   = new List<GameObject>();
 
-    [SerializeField] private float      chunkOffsetDeactive = 1.5f;
-                     private float      chunksDeactiveDistance;    
+    [Header("System Settings")]
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private int       poolSize         = 5;
+    [SerializeField] private float     chunkSpeed     = 4.0f;
+    [SerializeField] private int       chunksDisplayed  = 3;
+    [SerializeField] private float     deleteDistance = 1.5f;
 
-    // Pool de chunks
-    private Queue<GameObject> chunkPool    = new Queue<GameObject>(); 
-    private List<GameObject>  activeChunks = new List<GameObject>();
-        
-    private bool activeChunksBoolMovement = false;
-    private bool startedGame = false;
-    private int  indexChunkList = 0;
+    // Chunks Pool
+    private Queue<GameObject> chunkPool      = new Queue<GameObject>();
+    private List<GameObject>  activeChunksList = new List<GameObject>();
+
+    private bool chunksMoving = false;
+    private int  indexLevelChunks     = 0;
 
     void Start()
     {
         CreateChunksPool();
-        InitializeChunks();
     }
 
     void Update()
@@ -33,77 +33,99 @@ public class ChunkManager : MonoBehaviour
         ManageChunksState();
     }
 
+    /// <summary>
+    /// Reset and start a new chunks pool, then initialize the chunks.
+    /// </summary>
     private void CreateChunksPool()
     {
-        for (int i = 0; i < poolSize && i < chunkPrefabList.Count; i++)
+        DeleteChunksPool();
+
+        for (int i = 0; i < poolSize && i < levelChunks.Count; i++)
         {
-            //int rnd = Random.Range(0, chunkPrefabList.Count);
             CreateChunk();
+        }
+
+        for (int i = 0; i < chunksDisplayed; ++i)
+        {
+            EnableChunk();
+        }
+    }
+
+    private void DeleteChunksPool()
+    {
+        indexLevelChunks = 0;
+
+        while (chunkPool.Count > 0)
+        {
+            Destroy(chunkPool.Dequeue());
+        }
+
+        while (activeChunksList.Count > 0)
+        {
+            Destroy(activeChunksList[0]);
         }
     }
 
     private void CreateChunk()
     {
-        //IndexOutofRange error del indexChunkList porque si la lista del nivel tiene menos que la poolsize
-        GameObject chunk = Instantiate(chunkPrefabList[indexChunkList], spawnPoint.position, Quaternion.identity);
+        if (indexLevelChunks < levelChunks.Count)
+        {
+            GameObject chunk = Instantiate(levelChunks[indexLevelChunks], spawnPoint.position, Quaternion.identity);
 
-        chunk.GetComponent<ChunkMovement>().SetChunkSpeed(chunkSpeed);
-        chunk.GetComponentInChildren<ChunkMovement>().SetChunkMovement(activeChunksBoolMovement);
+            chunk    .GetComponent<ChunkMovement>().SetChunkSpeed(chunkSpeed);
+            chunk    .SetActive(false);
+            chunkPool.Enqueue(chunk);
 
-        chunksDeactiveDistance = chunk.GetComponentInChildren<MeshRenderer>().bounds.size.z * chunkOffsetDeactive;
-
-        chunk.SetActive(false);
-        chunkPool.Enqueue(chunk);
-
-        indexChunkList++;
-    }
-
-    private void InitializeChunks()
-    {
-        for (int i = 0; i < chunksDisplayed; ++i) { ActivateChunk(); }
+            indexLevelChunks++;
+        }
     }
 
     private void ManageChunksState()
     {
-        if(activeChunks.Count < chunksDisplayed && indexChunkList < chunkPrefabList.Count)
+        if (activeChunksList.Count > 0 &&
+            activeChunksList[0].transform.position.z < spawnPoint.position.z - deleteDistance)
         {
-            CreateChunk();
-            ActivateChunk();
-        }
-
-        if(activeChunks.Count > 0 && 
-            activeChunks[0].transform.position.z < spawnPoint.position.z - chunksDeactiveDistance) 
-        {
-            DisableChunk(activeChunks[0]);
+            DisableChunk();
         }
     }
 
-    // Método para activar un chunk
-    private void ActivateChunk()
+    /// <summary>
+    /// Make the next chunk visible and load a new chunk to the pool.
+    /// </summary>
+    private void EnableChunk()
     {
         if (chunkPool.Count > 0)
         {
             GameObject chunk = chunkPool.Dequeue();
+            
+            CreateChunk();
 
-            if (activeChunks.Count > 0)
+            if (activeChunksList.Count > 0)
             {
-                GameObject lastChunk = activeChunks[activeChunks.Count - 1];
+                GameObject lastChunk = activeChunksList[activeChunksList.Count - 1];
 
                 /**
                  *  C.Cabrera (13/11/2024): I really like the idea, but the problem is that we work with a modular system, so no mesh renderer
                  *  has the actual size of a chunk, which means it might not work with the real chunks. Pending confirmation.
                  */
                 MeshRenderer lastChunkRenderer = lastChunk.GetComponentInChildren<MeshRenderer>();
-                
+
                 if (lastChunkRenderer != null)
                 {
                     float chunkLength = lastChunkRenderer.bounds.size.z;
 
+                    /** 
+                     * C.Cabrera (30/12/2024): Thats not correct, your are only taking aware of the last Zsize but you need to know de Zsize of 
+                     * the new object and add both half values.
+                     */
                     Vector3 newPosition = lastChunk.transform.position + new Vector3(0, 0, chunkLength);
                     chunk.transform.position = newPosition;
                 }
                 else
                 {
+                    /**
+                     * C.Cabrera (30/12/2024): This case never happen. If this happen, is only due to an error.
+                     */
                     // Si no tiene MeshRenderer, usa la posición actual (caso de primer chunk generado)
                     chunk.transform.position = spawnPoint.position;
                 }
@@ -113,35 +135,33 @@ public class ChunkManager : MonoBehaviour
                 chunk.transform.position = spawnPoint.position;
             }
 
+            chunk.GetComponentInChildren<ChunkMovement>().SetChunkMovement(chunksMoving);
             chunk.SetActive(true);
-            activeChunks.Add(chunk);            
-            
+            activeChunksList.Add(chunk);
         }
     }
 
     // Método para desactivar y devolver a la pool el chunk
-    private void DisableChunk(GameObject chunk)
+    private void DisableChunk()
     {
-        activeChunks.Remove(chunk);
-        Destroy(chunk);
+        Destroy(activeChunksList[0]);
+        activeChunksList.Remove(activeChunksList[0]);
 
-        if (indexChunkList < chunkPrefabList.Count)
-        {
-            CreateChunk();
-        }
-
-        // Activar un nuevo chunk para mantener el número deseado de chunks activos
-        if (activeChunks.Count < chunksDisplayed)
-        {
-            ActivateChunk();
-        }
+        EnableChunk();
     }
 
     public void SetMovementOfActiveChunks(bool state)
     {
-        startedGame = !startedGame;
-        activeChunksBoolMovement = true;
+        chunksMoving = state;
 
-        foreach (var chunk in activeChunks) { chunk.GetComponent<ChunkMovement>().SetChunkMovement(state); }
+        foreach (var chunk in activeChunksList)
+        {
+            chunk.GetComponent<ChunkMovement>().SetChunkMovement(state);
+        }
+
+        foreach (var chunk in chunkPool)
+        {
+            chunk.GetComponent<ChunkMovement>().SetChunkMovement(state);
+        }
     }
 }
