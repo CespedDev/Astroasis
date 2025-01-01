@@ -12,14 +12,11 @@ EditorBuildSettings:
     path: Assets/ASTROASIS/Scenes/Final Levels/Tools Scenes/LevelScene.unity
     guid: bbf8d7d53bf1e4840999eaa3e1a0cd40
   - enabled: 1
-    path: Assets/ASTROASIS/Scenes/UI/IntroMenu.unity
-    guid: 2111c5def7ca9ad4692fcdd3d14947af
-  - enabled: 1
     path: Assets/ASTROASIS/Scenes/Final Levels/MenuScene.unity
     guid: 7664f25afc1634241b40955c87180c44
   - enabled: 1
-    path: Assets/ASTROASIS/Scenes/UI/OptionsMenu.unity
-    guid: 7e3aa5d3fae08644a847759917693b97
+    path: Assets/ASTROASIS/Scenes/Final Levels/Tools Scenes/RhythmScene.unity
+    guid: 619622b05244cfc488a19cd938259af5
   - enabled: 0
     path: Assets/ASTROASIS/Scenes/Test_Level.unity
     guid: 8c9817fa05d4a1d4790bf026926e6215

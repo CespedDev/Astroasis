@@ -53,6 +53,8 @@ namespace RhythmSystem
         // RHYTHM CHECKED
         public RhythmBonusSO lastRhythm { get; private set; }
 
+        private bool startedRhythm = false;
+
         void Awake()
         {
             // SINGLETON control
@@ -73,16 +75,12 @@ namespace RhythmSystem
         {
             //Calculate the number of seconds in each beat
             secPerBeat = 60f / songBpm / musicSource.pitch;
-
-            //Record the time when the music starts
-            dspSongTime = (float)AudioSettings.dspTime;
-
-            //Start the music
-            musicSource.Play();
         }
 
         void Update()
         {
+            if (!startedRhythm) return;
+
             //Determine how many seconds since the song started
             songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
 
@@ -117,6 +115,15 @@ namespace RhythmSystem
             }
 
             rhythmBonus = lastRhythm;
+        }
+
+        public void StartRhythm()
+        {
+            //Record the time when the music starts
+            dspSongTime = (float)AudioSettings.dspTime;
+
+            //Start the music
+            musicSource.Play();
         }
     }
 }

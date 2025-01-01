@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChunkManager : MonoBehaviour
 {
@@ -71,6 +72,7 @@ public class ChunkManager : MonoBehaviour
         if (indexLevelChunks < levelChunks.Count)
         {
             GameObject chunk = Instantiate(levelChunks[indexLevelChunks], spawnPoint.position, Quaternion.identity);
+            SceneManager.MoveGameObjectToScene(chunk, gameObject.scene);
 
             chunk    .GetComponent<ChunkMovement>().SetChunkSpeed(chunkSpeed);
             chunk    .SetActive(false);
