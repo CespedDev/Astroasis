@@ -124,6 +124,8 @@ namespace RhythmSystem
 
             //Start the music
             musicSource.Play();
+
+            startedRhythm = true;
         }
     }
 }
