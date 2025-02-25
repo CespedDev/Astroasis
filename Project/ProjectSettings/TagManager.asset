@@ -5,8 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Chunk
-  - DestroyChunk
+  - camara
   layers:
   - Default
   - TransparentFX
