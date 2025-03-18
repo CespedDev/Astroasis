@@ -114,7 +114,8 @@ public class ChunkManager : MonoBehaviour
 
                 if (lastChunkRenderer != null)
                 {
-                    float chunkLength = lastChunkRenderer.bounds.size.z;
+                    //float chunkLength = lastChunkRenderer.bounds.size.z;
+                    float chunkLength = 32;
 
                     /** 
                      * C.Cabrera (30/12/2024): Thats not correct, your are only taking aware of the last Zsize but you need to know de Zsize of 
