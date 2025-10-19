@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PerfectBonus
   m_EditorClassIdentifier: 
   Bonus: 2
-  BeatAccuracy: 0.05
+  BeatAccuracy: 0.15
   color: {r: 0, g: 0.62352943, b: 0.27058825, a: 1}

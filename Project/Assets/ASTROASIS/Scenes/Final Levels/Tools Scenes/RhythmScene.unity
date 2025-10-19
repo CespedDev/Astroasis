@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,7 +151,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7cc8b75fd01e1344bb1a2047bd9ef148, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b1f2055d820855849aa6ce1d71c01b9a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -253,14 +252,14 @@ MonoBehaviour:
   <songBpm>k__BackingField: 120
   <firstBeatOffset>k__BackingField: 0
   <musicSource>k__BackingField: {fileID: 96727093}
-  <beatsPerLoop>k__BackingField: 160
+  <beatsPerLoop>k__BackingField: 176
   accuracyBonuses:
   - {fileID: 11400000, guid: 8e20cbb802376be4d985bc23019d4f38, type: 2}
-  - {fileID: 11400000, guid: fc6f06391df9aa5439201a5ba56bf208, type: 2}
-  - {fileID: 11400000, guid: 24db93c8d73d8f141b5a8e4f54aec6fc, type: 2}
   - {fileID: 11400000, guid: d2a422323740e7043b155e18e4daebe8, type: 2}
   - {fileID: 11400000, guid: 9d5a38b285b268f40b62ab7923eae0dc, type: 2}
+  <dspSongTime>k__BackingField: 0
   loopPositionInBeats: 0
+  <loopPositionInBeatsNormalize>k__BackingField: 0
 --- !u!4 &96727095
 Transform:
   m_ObjectHideFlags: 0

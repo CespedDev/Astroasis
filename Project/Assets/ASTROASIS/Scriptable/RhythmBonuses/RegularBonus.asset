@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852401d94d56b7d4d82d920947d5ffe0, type: 3}
   m_Name: RegularBonus
   m_EditorClassIdentifier: 
-  Bonus: 0.5
+  Bonus: 1
   BeatAccuracy: 0.25
   color: {r: 1, g: 0.6039216, b: 0, a: 1}

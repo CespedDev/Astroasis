@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace RhythmSystem
 {
@@ -27,7 +28,7 @@ namespace RhythmSystem
         /// An AudioSource attached to this GameObject that will play the music.
         /// </summary>
         [field: SerializeField] public AudioSource musicSource { get; private set; }
-        
+
         /// <summary>
         /// The number of beats in each loop.
         /// </summary>
@@ -45,10 +46,11 @@ namespace RhythmSystem
         public float secPerBeat                     { get; private set; }
         public float songPosition                   { get; private set; }
         public float songPositionInBeats            { get; private set; }
-        public float dspSongTime                    { get; private set; }
+
+        [field: SerializeField] public float dspSongTime                    { get; private set; }
         public int   completedLoops                 { get; private set; } = 0;
-        public float loopPositionInBeats;       
-        public float loopPositionInBeatsNormalize   { get; private set; }
+        [field: SerializeField] public float loopPositionInBeats;
+        [field: SerializeField] public float loopPositionInBeatsNormalize   { get; private set; }
 
         // RHYTHM CHECKED
         public RhythmBonusSO lastRhythm { get; private set; }
@@ -75,6 +77,13 @@ namespace RhythmSystem
         {
             //Calculate the number of seconds in each beat
             secPerBeat = 60f / songBpm / musicSource.pitch;
+
+            startedRhythm = true;
+
+            dspSongTime = (float)AudioSettings.dspTime;
+
+            //Start the music
+            musicSource.Play();
         }
 
         void Update()
@@ -92,7 +101,6 @@ namespace RhythmSystem
                 completedLoops++;
             loopPositionInBeats = songPositionInBeats - completedLoops * beatsPerLoop;
 
-            //Calculate the normalize loop position
             loopPositionInBeatsNormalize = loopPositionInBeats - Mathf.Floor(loopPositionInBeats);
         }
 
@@ -104,10 +112,15 @@ namespace RhythmSystem
         {
             lastRhythm = null;
 
+            //Calculate the normalize loop position
+            loopPositionInBeatsNormalize = loopPositionInBeats - Mathf.Floor(loopPositionInBeats);
+
             foreach (RhythmBonusSO bonus in accuracyBonuses)
             {
-                if (loopPositionInBeatsNormalize >= 1 - bonus.BeatAccuracy || 
-                    loopPositionInBeatsNormalize <=     bonus.BeatAccuracy)
+                Debug.Log($"{bonus.color}: {bonus.BeatAccuracy} of {loopPositionInBeatsNormalize}");
+
+                if (loopPositionInBeatsNormalize >= 1 - bonus.BeatAccuracy ||
+                    loopPositionInBeatsNormalize <= bonus.BeatAccuracy)
                 {
                     lastRhythm = bonus;
                     break;
@@ -119,13 +132,11 @@ namespace RhythmSystem
 
         public void StartRhythm()
         {
-            //Record the time when the music starts
-            dspSongTime = (float)AudioSettings.dspTime;
+            
 
-            //Start the music
-            musicSource.Play();
+            
 
-            startedRhythm = true;
+            
         }
     }
 }

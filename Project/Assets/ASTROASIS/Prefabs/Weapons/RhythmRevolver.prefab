@@ -131,7 +131,7 @@ PrefabInstance:
         type: 3}
       propertyPath: GunShotSound
       value: 
-      objectReference: {fileID: 8300000, guid: 6938a02419627a448a69cb7050eb29ab, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1114456623013120188, guid: 9f71a5ca74b14ff4a89316cd9faf9208,
         type: 3}
       propertyPath: InternalAmmo
