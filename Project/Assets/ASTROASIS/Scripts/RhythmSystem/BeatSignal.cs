@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Pool;
 
 namespace RhythmSystem
 {
@@ -9,19 +10,22 @@ namespace RhythmSystem
     {
 
         public RectTransform hotBeat;
-        public RectTransform beat;
+        public RectTransform spawn;
+        public GameObject beatPrefab;
 
         private float startPosition;
 
+        private ObjectPool beatLeftPool = new ObjectPool(beatPrefab, 5);
+
         void Awake()
         {
-            startPosition = beat.localPosition.x;
+
         }
 
         void Update()
         {
             if (RhythmManager.Instance != null)
-                beat.localPosition = new Vector3((startPosition + hotBeat.localPosition.x) * (1- RhythmManager.Instance.loopPositionInBeatsNormalize), beat.localPosition.y, beat.localPosition.z);
+                spawn.localPosition = new Vector3((startPosition + hotBeat.localPosition.x) * (1- RhythmManager.Instance.loopPositionInBeatsNormalize), spawn.localPosition.y, spawn.localPosition.z);
         }
     }
 }
