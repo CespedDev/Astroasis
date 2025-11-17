@@ -57,6 +57,15 @@ namespace RhythmSystem
 
         private bool startedRhythm = false;
 
+        // Beat tracking
+        private int lastBeatIndex = -1;
+
+        // EVENTS
+        /// <summary>
+        /// Event triggered every time a new beat occurs. Passes the current beat index.
+        /// </summary>
+        public event Action<int> OnBeat;
+
         void Awake()
         {
             // SINGLETON control
@@ -95,6 +104,14 @@ namespace RhythmSystem
 
             //Determine how many beats since the song started
             songPositionInBeats = songPosition / secPerBeat;
+
+            // Check if we've hit a new beat
+            int currentBeatIndex = Mathf.FloorToInt(songPositionInBeats);
+            if (currentBeatIndex != lastBeatIndex && currentBeatIndex >= 0)
+            {
+                lastBeatIndex = currentBeatIndex;
+                OnBeat?.Invoke(currentBeatIndex);
+            }
 
             //Calculate the loop position
             if (songPositionInBeats >= (completedLoops + 1) * beatsPerLoop)
