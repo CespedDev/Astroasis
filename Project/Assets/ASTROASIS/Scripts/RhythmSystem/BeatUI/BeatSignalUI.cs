@@ -2,6 +2,7 @@ using BNG;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UI;
@@ -88,14 +89,14 @@ namespace RhythmSystem
         {
             // LEFT SPAWN
             BeatController beat = Pool.Get();
-            beat.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90f));
+            beat.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, -90f));
             beat.spawnTransform = leftSpawn;
             beat.targetTransform = leftTarget;
             beat.targetOffset = targetOffset;
 
             // RIGHT SPAWN
             beat = Pool.Get();
-            beat.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90f));
+            beat.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 90f));
             beat.spawnTransform = rightSpawn;
             beat.targetTransform = rightTarget;
             beat.targetOffset = -targetOffset;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.UI;
 
 namespace RhythmSystem
 {
@@ -12,7 +13,7 @@ namespace RhythmSystem
 
         public int maxBeatLifeTime = 5;
         public int hotBeatPosition = 4;
-        public AnimationCurve transparency;
+        public AnimationCurve transparency = new AnimationCurve(new Keyframe(0, 0), new Keyframe(3, 5));
 
         [NonSerialized] public float targetOffset = 0f;
         [NonSerialized] public Transform spawnTransform;
@@ -42,6 +43,7 @@ namespace RhythmSystem
         {
             float beatPositionX = ((beatLifeTime + RhythmManager.Instance.loopPositionInBeatsNormalize) * (targetTransform.localPosition.x + targetOffset - spawnTransform.localPosition.x) / maxBeatLifeTime) + spawnTransform.localPosition.x;
             transform.localPosition = new Vector3(beatPositionX, transform.localPosition.y, transform.localPosition.z);
+            GetComponent<Image>().color = new Color(1, 1, 1, transparency.Evaluate(beatLifeTime + RhythmManager.Instance.loopPositionInBeatsNormalize));
         }
 
         private void HandleBeat(int beatIndex)

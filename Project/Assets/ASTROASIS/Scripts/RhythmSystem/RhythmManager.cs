@@ -82,19 +82,6 @@ namespace RhythmSystem
             if (Instance == this) Instance = null; 
         }
 
-        void Start()
-        {
-            //Calculate the number of seconds in each beat
-            secPerBeat = 60f / songBpm / musicSource.pitch;
-
-            startedRhythm = true;
-
-            dspSongTime = (float)AudioSettings.dspTime;
-
-            //Start the music
-            musicSource.Play();
-        }
-
         void Update()
         {
             if (!startedRhythm) return;
@@ -149,11 +136,15 @@ namespace RhythmSystem
 
         public void StartRhythm()
         {
-            
+            //Calculate the number of seconds in each beat
+            secPerBeat = 60f / songBpm / musicSource.pitch;
 
-            
+            startedRhythm = true;
 
-            
+            dspSongTime = (float)AudioSettings.dspTime;
+
+            //Start the music
+            musicSource.Play();
         }
     }
 }
